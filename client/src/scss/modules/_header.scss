@@ -1,9 +1,15 @@
 .header {
 	background-color: $navy;
 	padding:1rem;
+	color:$white;
 }
 .header__logo {
 	height: 6rem;
 	width: 6rem;
 	border-radius: 6rem;
+}
+.header__user-infos {
+	display: inline-block;
+	vertical-align: top;
+	padding:5px;
 }
