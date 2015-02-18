@@ -13,6 +13,7 @@
       return $http.get(ApiConfig.COMMON_URL + region + cfg.version + cfg.label + 'by-name/' + username + ApiConfig.API_KEY).then(function(response){
         if (response && response.status === 200) {
           api.user = response.data[username];
+          api.user.region = region;
           $rootScope.user = api.user;
           return api.user;
         }
