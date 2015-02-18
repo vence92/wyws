@@ -1,0 +1,12 @@
+<div class="index__block">
+	<img class="index__logo" src="../assets/images/logo.jpg" alt="logo" title"logo LOL"/>
+	<form class="index__form pure-form" ng-submit="connect()">
+		<label>Username: </label>
+		<input type="text" ng-model="username"/>
+		<select class="index__select" ng-model="region" ng-options="region for region in api.base.regions">
+			<option value="">-- Region --</option>
+		</select>
+		<br />
+		<input type="submit" class="pure-button button"/>	
+	</form>
+</div>
