@@ -1,11 +1,15 @@
 <div class="header">
-	<img class="header__logo" src="../assets/images/test.jpg"/>
+		<a class="header__test"ui-sref="index">
+			<img class="header__logo" src="../assets/images/test.jpg" />
+		</a>
+	
 	<div class="header__user-infos">
 		<span>{{user.name}}</span>
 		<br />
 		<span>{{user.region | uppercase}}</span>
 		<br />
 		<span>S4 Platinum IV</span>
+		<span>{{rankedstats[0]}}</span>
 	</div>
 </div>
 

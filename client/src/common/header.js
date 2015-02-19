@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function headerCtrl() {
+  function headerCtrl($scope, $stateParams, StatsFactory) {
   }
 
   angular.module('common.header', [])

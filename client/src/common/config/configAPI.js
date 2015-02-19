@@ -6,6 +6,7 @@
     //put onserve side l8ter
       API_KEY : '?api_key=eb5cff4a-9a8a-4932-a8f8-429e6d9c7183',
       COMMON_URL: 'https://euw.api.pvp.net/api/lol/',
+      GLOBAL_URL: 'https://global.api.pvp.net/api/lol/',
       OBSERVER_URL: 'https://euw.api.pvp.net/observer-mode/rest/',
       //base config
       base: {
@@ -28,8 +29,9 @@
           }
         },
         staticdatas: {
-          label: '/static-data/',
-          version: '/v1.2'
+          label: 'static-data/',
+          version: '/v1.2',
+          key : '&api_key=eb5cff4a-9a8a-4932-a8f8-429e6d9c7183'
         },
         league: {
           label: '/league/',

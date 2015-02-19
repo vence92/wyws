@@ -1,3 +1,22 @@
-<div>
-	{{user.name}}
+<div class="profile">
+	<div class="profile__block profile__block--recentGames">
+		<div class="profile__title">Recent games:</div>
+		<div class="profile__recent" ng-repeat="game in userProfile.recentGames">
+			<span>Kills: {{game.stats.championsKilled}}</span>
+			<span>Deaths: {{game.stats.numDeaths}}</span>
+			<span>Assists: {{game.stats.assists}}</span>
+		</div>
+	</div>
+	<div class="profile__block profile__block--stats">
+		<div class="profile__title">Recent </div>
+		{{userProfile.name}}
+	</div>
+	<div class="profile__block profile__block--runes">
+		<div class="profile__title">Dont know yet</div>
+		{{userProfile.name}}
+	</div>
+	<div class="profile__block profile__block--other">
+		<div class="profile__title">Dont know yet</div>
+		{{userProfile.name}}
+	</div>
 </div>

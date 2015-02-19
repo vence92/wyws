@@ -37,7 +37,7 @@
       else if(!$scope.username){
         console.log('Veuillez rentrer un nom de summoner !')
       }
-      else if($scope.region) {
+      else if(!$scope.region) {
         console.log('Veuillez préciser la région')
       }
     }
