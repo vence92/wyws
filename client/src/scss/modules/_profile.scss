@@ -7,21 +7,27 @@
 	float:left;
 	padding:1%;
 }
-	.profile__block--recentGames {
-		background:$gray;
-	}
-	.profile__block--stats {
-		background:$silver;
-	}
-	.profile__block--runes {
-		background:$maroon;
-	}
-	.profile__block--other {
-		background:$gray;
-	}
 
 .profile__title {
 	@include font-size(16px);
 	color:$maroon;
 	text-align:left;
 }
+
+.profile__recent {
+	background:$lose;
+	padding:10px;
+	transition: .3s;
+	margin:1px 0;
+}
+	.profile__recent:hover {
+		background:$lose-hover;
+	}
+
+
+.profile__recent-win {
+	background: $win;
+}
+	.profile__recent-win:hover {
+		background: $win-hover;
+	}
