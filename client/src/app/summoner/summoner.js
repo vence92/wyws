@@ -10,18 +10,20 @@
   	var cfg = ApiConfig.base.summoner;
 
     function getUser(username, region) {
-      username = angular.lowercase(username);
-      return $http.get(ApiConfig.COMMON_URL + region + cfg.version + cfg.label + 'by-name/' + username + ApiConfig.API_KEY).then(function(response){
-        if (response.data && response.status === 200) {
-          api.user = response.data[username];
-          api.user.region = region;
-          $rootScope.user = api.user;
-          return api.user;
-        }
-        else {
-          return $q.reject(response.data);
-        }
-      });
+      if(!api.user.length > 0) {
+        username = angular.lowercase(username);
+        return $http.get(ApiConfig.COMMON_URL + region + cfg.version + cfg.label + 'by-name/' + username + ApiConfig.API_KEY).then(function(response){
+          if (response.data && response.status === 200) {
+            api.user = response.data[username];
+            api.user.region = region;
+            $rootScope.user = api.user;
+            return api.user;
+          }
+          else {
+            return $q.reject(response.data);
+          }
+        });
+      }
     }
 
     function getMasteries(userId, region) {
@@ -38,6 +40,7 @@
 
 
   	var api = {
+      user: {},
       getUser: getUser,
       getMasteries: getMasteries,
       getRunes: getRunes

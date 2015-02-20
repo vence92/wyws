@@ -1,7 +1,8 @@
 <div class="profile">
 	<div class="profile__block profile__block--recentGames">
 		<div class="profile__title">Recent games:</div>
-		<div class="profile__recent" ng-repeat="game in userProfile.recentGames">
+		<div class="profile__recent" ng-repeat="game in userProfile.recentGames" ng-class="{'profile__recent-win': game.stats.win}">
+			<span>{{ game.championId | convertIdToName}}</span>
 			<span>Kills: {{game.stats.championsKilled}}</span>
 			<span>Deaths: {{game.stats.numDeaths}}</span>
 			<span>Assists: {{game.stats.assists}}</span>

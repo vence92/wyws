@@ -27,43 +27,33 @@
    * @name  profileCtrl
    * @description Controller
    */
-  function ProfileCtrl($scope, $stateParams, ProfileFactory, ChampionFactory) {
-    $scope.userProfile = ProfileFactory.getProfileUserObj();
-    ChampionFactory.getChampionList($scope.user.region).then(function(data){
-      $scope.champions = data;
-      console.log($scope.champions);
-    })
+  function ProfileCtrl($scope, $stateParams, ProfileFactory, SummonerFactory) {
+    $scope.userProfile = ProfileFactory.getProfileUserObj(SummonerFactory.user);
   }
 
   /**
    * @name  profileFactory
    * @description Factory
    */
-  function ProfileFactory($q, $stateParams, SummonerFactory, GameFactory) {
-
+  function ProfileFactory($q, $stateParams, SummonerFactory, GameFactory, ChampionFactory) {
 
     // Build custom user object for profile view.
-    function getProfileUserObj() {
-
-      api = SummonerFactory.user;
-
-      var userId = SummonerFactory.user.id,
-          region = SummonerFactory.user.region;
-
-      $q.all([
-            SummonerFactory.getRunes(userId, region),
-              SummonerFactory.getMasteries(userId, region),
-                GameFactory.getRecentGames(region, userId)
-      ])
-      .then(function(results){
-        api.runes = results[0];
-        api.masteries = results[1];
-        api.recentGames = results[2];
-      })
-      return api;
+    function getProfileUserObj(user) {
+      if (user) {
+        $q.all({
+          masteries: SummonerFactory.getMasteries(user.id, user.region),
+          runes: SummonerFactory.getRunes(user.id, user.region),
+          recentGames: GameFactory.getRecentGames(user.region, user.id)
+        })
+        .then(function(results){
+          angular.extend(api.userProfile, user, results);
+        })
+        return api.userProfile;
+      }
     }
 
     var api = {
+      userProfile : {},
       getProfileUserObj: getProfileUserObj
     }
 

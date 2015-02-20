@@ -30,9 +30,7 @@
 
     $scope.connect = function(){
       if($scope.username && $scope.region){
-        SummonerFactory.getUser($scope.username, $scope.region).then(function(data){
-          $state.go('root.profile',{username : $scope.username, region: $scope.region});
-        })
+        $state.go('root.profile',{username : $scope.username, region: $scope.region});
       }
       else if(!$scope.username){
         console.log('Veuillez rentrer un nom de summoner !')

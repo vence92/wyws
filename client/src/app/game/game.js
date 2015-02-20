@@ -13,17 +13,19 @@
 		return $http.get(ApiConfig.COMMON_URL + region + cfg.version + cfg.label + 'by-summoner/' + id + '/recent' + ApiConfig.API_KEY)
         .then(function(response) {
             if (typeof response.data === 'object') {
-              return response.data.games;
+            	api.games = response.data.games;
+				return api.games;
             } else {
               return $q.reject(response.data);
             }
           }, function(response) {
               return $q.reject(response.data);
 		});
-    }
+}
 
   	var api = {
-      getRecentGames: getRecentGames
+  		games : [],
+		getRecentGames: getRecentGames
   	}
 
   	return api;
