@@ -2,10 +2,21 @@
 	@extend %clearfix;
 }
 
-.profile__block {
+.profile__user {
+	width:100%;
+	padding:1%;
+}
+.profile__user--multiple {
 	width:48%;
 	float:left;
-	padding:1%;
+}
+.profile__user:nth-child(odd) {
+	background:$silver;
+}
+.profile__user:nth-child(even) {
+	background:$gold;
+}
+.profile__block {
 }
 
 .profile__title {
@@ -30,4 +41,13 @@
 }
 	.profile__recent-win:hover {
 		background: $win-hover;
+	}
+
+	.right {
+		display:inline-block;
+		float:right;
+	}
+	.left {
+	display:inline-block;
+	float:left;
 	}

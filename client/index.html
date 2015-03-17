@@ -15,17 +15,16 @@
   <meta name="keywords" content="AngularJS, angular-kickstart, gulp, bower, vesparny" />
 
   <!-- build:css assets/css/main.css -->
-  <link rel="stylesheet" type="text/css" href="src/vendor/pure/pure.css" />
-  <link rel="stylesheet" type="text/css" href="src/vendor/pure/grids-responsive.css" />
+  <link rel="stylesheet" type="text/css" href="src/vendor/angular-material/angular-material.min.css" />
   <link rel="stylesheet" type="text/css" href="tmp/main.css" />
   <!-- endbuild -->
 </head>
 
-<body ng-class="{'index': $state.is('index')}">
+<body>
 
-    <header ng-show="!$state.is('index')" ui-view="header"></header>
+    <header ui-view="header"></header>
     <div ui-view></div>
-    <footer ng-show="!$state.is('index')" ui-view="footer"></footer>
+    <footer ui-view="footer"></footer>
 
   <!-- build:js assets/js/vendor.js -->
   <script type="text/javascript" src="src/vendor/angular/angular.js"></script>
@@ -33,22 +32,20 @@
   <!-- endbuild -->
 
   <!-- build:js assets/js/main.js -->
+  
+  <script src="src/vendor/angular-aria/angular-aria.js"></script>
+  <script src="src/vendor/angular-animate/angular-animate.js"></script>
+  <script src="src/vendor/angular-material/angular-material.js"></script>
+
+  
   <script type="text/javascript" src="src/app/app.js"></script>
 
   <script type="text/javascript" src="src/app/index/index.js"></script>
   <script type="text/javascript" src="src/app/profile/profile.js"></script>
-  <script type="text/javascript" src="src/app/summoner/summoner.js"></script>
   <script type="text/javascript" src="src/app/observer/observer.js"></script>
-  <script type="text/javascript" src="src/app/stats/stats.js"></script>
-  <script type="text/javascript" src="src/app/game/game.js"></script>
-
-  <script type="text/javascript" src="src/app/staticdatas/staticdatas.js"></script>
-  <script type="text/javascript" src="src/app/staticdatas/champion.js"></script>
-  <script type="text/javascript" src="src/app/staticdatas/item.js"></script>
-  <script type="text/javascript" src="src/app/staticdatas/mastery.js"></script>
-  <script type="text/javascript" src="src/app/staticdatas/realm.js"></script>
-  <script type="text/javascript" src="src/app/staticdatas/rune.js"></script>
-  <script type="text/javascript" src="src/app/staticdatas/spell.js"></script>
+  <script type="text/javascript" src="src/app/User/UserService.js"></script>
+  <script type="text/javascript" src="src/app/staticdatas/StaticDatasService.js"></script>
+  <script type="text/javascript" src="src/app/compare/compare.js"></script>
 
   <script type="text/javascript" src="src/common/directives/version.js"></script>
   <script type="text/javascript" src="src/common/interceptors/httpInterceptor.js"></script>

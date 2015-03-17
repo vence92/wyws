@@ -1,0 +1,24 @@
+<form ng-submit="getUsersProfile()">
+	<label>Summoner 1: </label>
+	<input type="text" ng-model="user1"/>
+	<select class="index__select" ng-model="region1" ng-options="region for region in api.base.regions">
+		<option value="">-- Region --</option>
+	</select>
+	<br/>
+	<label>Summoner 2: </label>
+	<input type="text" ng-model="user2"/>
+	<select class="index__select" ng-model="region2" ng-options="region for region in api.base.regions">
+		<option value="">-- Region --</option>
+	</select>
+	<br />
+	<br/>
+	<input type="submit" class="pure-button button"/>
+</form>
+<div class="compare" ng-show="">
+	<div class="left">
+		{{user1}}{{region1}}
+	</div>
+	<div class="right">
+		{{user2}}{{region2}}
+	</div>
+</div>

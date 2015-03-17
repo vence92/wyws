@@ -8,7 +8,7 @@
   function config($stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
     $urlRouterProvider.otherwise('/index');
     $logProvider.debugEnabled(true);
-/*    $httpProvider.interceptors.push('httpInterceptor');*/
+    //$httpProvider.interceptors.push('httpInterceptor');
     $stateProvider
       .state('root', {
         views: {
@@ -33,15 +33,14 @@
   }
 
   angular.module('app', [
+      'ngMaterial',
       'ui.router',
       'index',
       'profile',
-      'summoner',
       'observer',
-      'stats',
-      'game',
+      'user',
+      'compare',
       'staticdatas',
-      'champion',
       'common.header',
       'common.footer',
       'common.services.data',

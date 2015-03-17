@@ -1,9 +1,15 @@
 <div class="header">
-		<a class="header__test"ui-sref="index">
-			<img class="header__logo" src="../assets/images/test.jpg" />
-		</a>
-	
-	<div class="header__user-infos">
+	<ul class="header__nav">
+		<li>
+			<a ui-sref="index">Home</a>
+		</li>
+	</ul>
+</div>
+
+<!-- <a class="header__test" ui-sref="index">
+		<img class="header__logo" src="../assets/images/test.jpg" />
+	</a>
+	<div class="header__user-infos" ng-repeat="user in users">
 		<span>{{user.name}}</span>
 		<br />
 		<span>{{user.region | uppercase}}</span>
@@ -11,5 +17,12 @@
 		<span>S4 Platinum IV</span>
 		<span>{{rankedstats[0]}}</span>
 	</div>
-</div>
 
+	<form ng-submit="compareWith()">
+		<label>Compare {{user.name}} stats with : </label>
+		<input type="text" ng-model="otherUser"/>
+		<select class="index__select" ng-model="regionOtherUser" ng-options="region for region in api.base.regions">
+			<option value="">-- Region --</option>
+		</select>
+		<input type="submit"/>
+	</form> -->

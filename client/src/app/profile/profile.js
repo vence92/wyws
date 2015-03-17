@@ -16,44 +16,56 @@
           }
         },
         resolve: {
-          resolveUser: function($stateParams, SummonerFactory) {
-            return SummonerFactory.getUser($stateParams.username, $stateParams.region);
+          resolvedUser: function($stateParams, UserFactory, ProfileFactory) {
+            return UserFactory.getUser($stateParams.username, $stateParams.region).then(function(response){
+              ProfileFactory.getProfileUserObj(response);
+            })
           }
         }
-      });
+      })
   }
 
   /**
    * @name  profileCtrl
    * @description Controller
    */
-  function ProfileCtrl($scope, $stateParams, ProfileFactory, SummonerFactory) {
-    $scope.userProfile = ProfileFactory.getProfileUserObj(SummonerFactory.user);
+  function ProfileCtrl($scope, $stateParams, ProfileFactory, UserFactory) {
+    $scope.users = UserFactory.users;
+    console.log($scope.users)
   }
 
   /**
    * @name  profileFactory
    * @description Factory
    */
-  function ProfileFactory($q, $stateParams, SummonerFactory, GameFactory, ChampionFactory) {
+  function ProfileFactory($q, $stateParams, UserFactory) {
 
     // Build custom user object for profile view.
     function getProfileUserObj(user) {
-      if (user) {
         $q.all({
-          masteries: SummonerFactory.getMasteries(user.id, user.region),
-          runes: SummonerFactory.getRunes(user.id, user.region),
-          recentGames: GameFactory.getRecentGames(user.region, user.id)
+          masteries: UserFactory.getUserMasteries(user.id, user.region),
+          runes: UserFactory.getUserRunes(user.id, user.region),
+          recentGames: UserFactory.getUserRecentGames(user.region, user.id)
         })
         .then(function(results){
-          angular.extend(api.userProfile, user, results);
+          angular.forEach(api.userProfiles, function(userProfile) {
+            console.log(user.name, userProfile.name)
+            if (userProfile.name !== user.name ) {
+              var userProfile = angular.extend({}, user, results);
+              api.userProfiles.push(userProfile);
+              console.log(api.userProfiles)
+              return api.userProfiles;
+            }
+            else {
+              console.log('user alrdy exists')
+            }
+          })
+          
         })
-        return api.userProfile;
       }
-    }
 
     var api = {
-      userProfile : {},
+      userProfiles : [],
       getProfileUserObj: getProfileUserObj
     }
 
