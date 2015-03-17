@@ -6,7 +6,7 @@
 	bottom:150px;
 	margin: 0;
 	padding: 0;
-	background-color: $white;
+	background-color: darken($gray, 2);
 }
 .index {
 	position: relative;
@@ -14,41 +14,13 @@
 	height:100%;
 }
 .index__block {
-	float: left;
-	width:48%;
-	height:45%;
-	margin:10px 1%;
+	margin: 0 1em;
 }
-.index__block--large {
-	width:98%;
-}
-	.index__title {
-		margin:0;
-		padding:10px;
-		font-size:1em;
-		background: rgba($gray, 0.7);
-	}
-.index__block--summoner {
-	background: rgba($gray, 0.8);
-	input[type="submit"] {
-		float:right;
-		padding:10px 12px;
-	}
-}
-.index__block--compare {
-	background: rgba($gray, 0.6);
-	.index__form {
-		text-align: center;
-	}
-}
-.index__block--stuff {
-	background: rgba($gray, 0.9);
+.index__title {
+	text-align: center;
+	padding: 1em;
 }
 .index__form {
-	padding:1rem;
-	text-align: left;
+	padding: 1em;
 }
 
-.index__select {
-	margin-bottom:10px;
-}

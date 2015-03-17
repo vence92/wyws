@@ -1,0 +1,35 @@
+$blue: deepskyblue;
+$gray: silver;
+$red: red;
+
+
+.bg-blue {
+    background-color: $blue;
+}
+.bg-lightBlue {
+    background-color: lighten($blue, 10%);
+}
+.bg-darkBlue {
+    background-color: darken($blue, 10%);
+}
+
+
+.bg-gray {
+    background-color: $gray;
+}
+.bg-lightGray {
+    background-color: lighten($gray, 10%);
+}
+.bg-darkGray {
+    background-color: darken($gray, 10%);
+}
+
+.bg-red {
+    background-color: $red;
+}
+.bg-lightRed {
+    background-color: lighten($red, 10%);
+}
+.bg-darkRed {
+    background-color: darken($red, 10%);
+}

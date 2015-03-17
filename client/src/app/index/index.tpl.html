@@ -1,28 +1,34 @@
 <div ng-include="'../src/common/header.tpl.html'"></div>
 <div class="layout">
-	<div class="index">
-		<div class="index__block index__block--summoner">
-			<h1 class="index__title">Search for a summoner</h1>
-			<form class="index__form pure-form" ng-submit="getUser(user, userRegion)">
-            <md-content  md-theme="dark">
-    			<md-input-container>
-                    <label>Summoner</label>
-                    <input type="text" ng-model="user" required>
-    			</md-input-container>
-                <md-select ng-model="userRegion" placeholder="Select a region">
-                    <label>Select a region: </label>
-                    <md-option ng-value="region" ng-repeat="region in api.base.regions">{{ region }}</md-option>
-                </md-select>
-            </md-content>
-                <input type="submit" class="pure-button button"/>
-			</form> 
+	<div class="index" layout="row">
+		<div flex class="bg-gray index__block">
+			<div class="bg-lightGray index__title">Search for a summoner</div>
+			<div class="index__form">
+                <md-content md-theme="dark">
+        			<md-input-container layout-align="center center">
+                        <label>Summoner</label>
+                        <input type="text" ng-model="user" required>
+        			</md-input-container>
+                </md-content>
+                <div layout="column" layout-align="center center">
+                    <md-select ng-model="userRegion" placeholder="Région: " layout-align="center center">
+                        <label>Select a region: </label>
+                        <md-option ng-value="region" ng-repeat="region in api.base.regions">{{ region }}</md-option>
+                    </md-select>
+                </div>
+                <div layout="column" layout-align="center center">
+                    <md-button class="md-raised" ng-click="getUser(user, userRegion)">
+                        SEARCH
+                    </md-button>
+                </div>
+			</div> 
 		</div>
-		<div class="index__block index__block--compare">
-			<h1 class="index__title">Compare two summoners !</h1>
-			<form class="index__form pure-form" ng-submit="getUsers(user1, user2, usersRegion)">
+		<div flex class="bg-gray index__block">
+			<div class="bg-lightGray index__title">Compare two summoners !</div>
+			<form class="index__form" ng-submit="getUsers(user1, user2, usersRegion)">
 				<label>Summoner 1</label>
 				<input type="text" ng-model="user1"/>
-				<select class="index__select" ng-model="usersRegion" ng-options="region for region in api.base.regions">
+				<select ng-model="usersRegion" ng-options="region for region in api.base.regions">
 					<option value="">-- Region --</option>
 				</select>
 				<br/>
@@ -31,9 +37,6 @@
 				<br />
 				<input type="submit" class="pure-button button"/>
 			</form>
-		</div>
-		<div class="index__block index__block--stuff index__block--large">
-			Other stuff
 		</div>
 	</div>
 </div>

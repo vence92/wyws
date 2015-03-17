@@ -4,8 +4,8 @@
 	left:0;
 	right:0;
 	height:100px;
-	background-color: #202020;
 	color:$white;
+	background: darken($gray, 50%);
 }
 .header__logo {
 	height: 6rem;
@@ -29,7 +29,6 @@
 		width: 6rem;
 		border-radius: 6rem;
 		line-height: 6;
-		background: $white;
 	}
 	.header__test:hover {
 		.header__logo {
